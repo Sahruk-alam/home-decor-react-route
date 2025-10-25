@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router';
+import { Link } from 'react-router';
 import ProductCard from '../components/ProductCard';
+import useProduct from '../components/Hook/HookData';
 
 const Home = () => {
-const product=useLoaderData();
-const featureProduct=product.slice(0,6);
-console.log(product);
+
+const {products,loading,error}=useProduct();
+
+const featureProduct=products.slice(0,6);
+
     return (
     
         <div>
