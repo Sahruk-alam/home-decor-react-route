@@ -5,7 +5,7 @@ import useProduct from '../components/Hook/HookData';
 
 const Home = () => {
 
-const {products,loading,error}=useProduct();
+const {products}=useProduct();
 
 const featureProduct=products.slice(0,6);
 
