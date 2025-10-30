@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import useProduct from '../components/Hook/HookData';
 import ProductCard from '../components/ProductCard';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Products = () => {
-    const {products}=useProduct()
+    const {products,loading}=useProduct()
     const [search,setSearch]=useState('')
     const trim=search.trim().toLocaleLowerCase();
     const searchProducts= trim ? products.filter(product=>
         product.name.toLocaleLowerCase().includes(trim)) 
         : products; 
+        if(loading){
+    return  <LoadingSpinner count={16}/>
+}
     return (
         <div>
             <div className='flex justify-between items-center py-5'>
